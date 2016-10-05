@@ -55,8 +55,12 @@ describe('Triangle checking tests: invalid cases with other cases', () => {
     var triangleService = new TriangleService();
 
 
-    it('Invalid with incorrect sides count(2, 2, 2, 2)', function () {
+    it('Invalid with incorrect sides count: square(2, 2, 2, 2)', function () {
         return expect(triangleService.TriangleCheck([2, 2, 2, 2])).toBe('invalid');
+    });
+
+    it('Invalid with incorrect sides count: angle(2, 2)', function () {
+        return expect(triangleService.TriangleCheck([2, 2])).toBe('invalid');
     });
 
     it('Invalid with impossible sides lengths combination(1,2,8)', () => expect(triangleService.TriangleCheck([1, 2, 8])).toBe('invalid'));
