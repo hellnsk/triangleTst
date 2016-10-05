@@ -1,6 +1,4 @@
-
-
-import { TriangleService } from './triangle.service';
+import {TriangleService} from './triangle.service';
 
 describe('Triangle checking tests: valid cases', () => {
 
@@ -12,7 +10,9 @@ describe('Triangle checking tests: valid cases', () => {
 
     it('Scalene(2,3,4)', () => expect(triangleService.TriangleCheck([2, 3, 4])).toBe('scalene'));
 
-    it('Valid isosceles with js-convertable types of sides lengths("2", "2","1")', function () { return expect(triangleService.TriangleCheck(["2", "2","1"])).toBe('isosceles'); });
+    it('Valid isosceles with js-convertable types of sides lengths("2", "2","1")', function () {
+        return expect(triangleService.TriangleCheck(["2", "2", "1"])).toBe('isosceles');
+    });
 
 });
 
@@ -38,15 +38,25 @@ describe('Triangle checking tests: invalid cases with incorrect types of sides l
 
     var triangleService = new TriangleService();
 
-    it('Invalid: (null, 1,1)', function () { return expect(triangleService.TriangleCheck([null, 1,1])).toBe('invalid'); });
+    it('Invalid: (null, 1,1)', function () {
+        return expect(triangleService.TriangleCheck([null, 1, 1])).toBe('invalid');
+    });
 
-    it('Invalid: (NaN, 1, 1)', function () { return expect(triangleService.TriangleCheck([NaN, 1, 1])).toBe('invalid'); });
+    it('Invalid: (NaN, 1, 1)', function () {
+        return expect(triangleService.TriangleCheck([NaN, 1, 1])).toBe('invalid');
+    });
 
-    it('Invalid: (undefined, 1, 1)', function () { return expect(triangleService.TriangleCheck([undefined, 1, 1])).toBe('invalid'); });
+    it('Invalid: (undefined, 1, 1)', function () {
+        return expect(triangleService.TriangleCheck([undefined, 1, 1])).toBe('invalid');
+    });
 
-    it('Invalid: (false, 1, 1)', function () { return expect(triangleService.TriangleCheck([false, 1, 1])).toBe('invalid'); });
+    it('Invalid: (false, 1, 1)', function () {
+        return expect(triangleService.TriangleCheck([false, 1, 1])).toBe('invalid');
+    });
 
-    it('Invalid: (true, 1, 1)', function () { return expect(triangleService.TriangleCheck([true, 1, 1])).toBe('invalid'); });
+    it('Invalid: (true, 1, 1)', function () {
+        return expect(triangleService.TriangleCheck([true, 1, 1])).toBe('invalid');
+    });
 
 });
 

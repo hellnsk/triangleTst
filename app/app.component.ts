@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { TriangleService } from './triangle.service';
+import {Component} from '@angular/core';
+import {TriangleService} from './triangle.service';
 
 @Component({
     selector: 'triangle',
@@ -15,20 +15,17 @@ import { TriangleService } from './triangle.service';
 })
 export class AppComponent {
     public title: String = 'Triangle check';
-    public sides: Array<any> = [0,0,0];
+    public sides: Array<any> = [0, 0, 0];
     public triangleCheckResult: String = '';
     private triangleService: TriangleService;
 
-    constructor(triangleService:TriangleService){
+    constructor(triangleService: TriangleService) {
         this.triangleService = triangleService;
         this.checkTriangle();
     }
 
-    checkTriangle(){
-        console.dir('checkTriangle');
-        console.dir(this.sides);
+    checkTriangle() {
         this.triangleCheckResult = this.triangleService.TriangleCheck(this.sides);
-        console.dir(this.triangleCheckResult);
     }
 
 }
