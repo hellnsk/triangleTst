@@ -1,0 +1,41 @@
+
+describe('Ent-to-end Tests', function () {
+
+  // all meaningful UI text strings can be placed here
+
+  // to be equal
+  let ui_texts_equal = {
+    "h1": "Triangle test app",
+    "h2": "Triangle check",
+    "h3": "Triangle sides:"
+  };
+
+  // to match (case-sensitive)
+  let ui_texts_match = {
+    "p": "Result:"
+  };
+
+  let i: any;
+
+
+  beforeEach(function () {
+    browser.get('');
+  });
+
+  for( i in ui_texts_equal ){
+
+    it(i + ' should be equal to: ' + ui_texts_equal[i], function () {
+      expect(element(by.css('h1')).getText()).toEqual(ui_texts_equal[i]);
+    });
+
+  }
+
+  for( i in ui_texts_match ){
+
+    it(i + ' should match to: ' + ui_texts_match[i], function () {
+      expect(element(by.css('h1')).getText()).toMatch('/' + ui_texts_match[i] + '/');
+    });
+
+  }
+
+});

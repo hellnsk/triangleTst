@@ -10,7 +10,7 @@ import { TriangleService } from './triangle.service';
     [{{i}}]: <input [(ngModel)]="sides[i]" (blur)="checkTriangle()" (input)="checkTriangle()" (keyup)="simpleCheck($event)"> {{side}}
     </li>
     </ul>
-    <h3>Result: {{triangleCheckResult}}</h3>
+    <p>Result: {{triangleCheckResult}}</p>
     `,
 })
 export class AppComponent {
@@ -23,8 +23,6 @@ export class AppComponent {
 
     constructor(triangleService:TriangleService){
         this.triangleService = triangleService;
-        this.sidePattern = new RegExp('[0-9\t\n\r\v]+');
-        this.allowedKeyCodes = [8,9,37,38,39,40,46];
         this.checkTriangle();
     }
 
