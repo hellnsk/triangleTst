@@ -7,7 +7,7 @@ import { TriangleService } from './triangle.service';
     <h3>Triangle sides:</h3>
     <ul>
     <li *ngFor="let side of sides; let i=index;">
-    [{{i}}]: <input [(ngModel)]="sides[i]" (blur)="checkTriangle()" (input)="checkTriangle()" (keyup)="simpleCheck($event)"> {{side}}
+    [{{i}}]: <input type="number" maxlength="10" pattern="[0-9]+\.?[0-9]*" [(ngModel)]="sides[i]" (input)="checkTriangle()"> {{side}}
     </li>
     </ul>
     <p>Result: {{triangleCheckResult}}</p>
@@ -18,8 +18,6 @@ export class AppComponent {
     public sides: Array<any> = [0,0,0];
     public triangleCheckResult: String = '';
     private triangleService: TriangleService;
-    private sidePattern = new RegExp('[0-9\t\n\r\v]+');
-    private allowedKeyCodes = [8,9,37,38,39,40,46];
 
     constructor(triangleService:TriangleService){
         this.triangleService = triangleService;
@@ -33,10 +31,4 @@ export class AppComponent {
         console.dir(this.triangleCheckResult);
     }
 
-    /* Just to do not import full pack of Validators */
-    simpleCheck(event: KeyboardEvent){
-        console.dir(event);
-        let ret = ((-1 < this.allowedKeyCodes.indexOf(event.keyCode)) || this.sidePattern.test(event.key));
-        return ret;
-    }
 }
